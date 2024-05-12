@@ -205,6 +205,10 @@ static const struct {
 		EFI_IP4_CONFIG2_PROTOCOL_GUID,
 	},
 #endif
+	{
+		"Absolute Pointer",
+		EFI_ABSOLUTE_POINTER_PROTOCOL_GUID
+	},
 	/* Configuration table GUIDs */
 	{
 		"ACPI table",
