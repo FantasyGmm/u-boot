@@ -121,6 +121,10 @@ int board_fdt_blob_setup(void **fdtp)
 		ret = qcom_parse_memory(external_fdt);
 	}
 
+	/* As a last resort, try to parse from SMEM */
+	if (ret < 0)
+		ret = qcom_parse_memory(NULL);
+
 	if (ret < 0)
 		panic("No valid memory ranges found!\n");
 
