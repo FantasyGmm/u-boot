@@ -18,6 +18,7 @@
 
 #define USB30_PRIM_MASTER_CLK_CMD_RCGR 0xf020
 #define USB30_PRIM_MOCK_UTMI_CLK_CMD_RCGR 0xf038
+#define USB3_PRIM_PHY_AUX_CLK_CMD_RCGR 0xf064
 #define USB30_SEC_MASTER_CLK_CMD_RCGR 0x9e020
 #define USB30_SEC_MOCK_UTMI_CLK_CMD_RCGR 0x9e038
 #define PCIE_1_AUX_CLK_CMD_RCGR 0x8d058
@@ -56,7 +57,7 @@ static ulong sc7280_set_rate(struct clk *clk, ulong rate)
 		clk_rcg_set_rate(priv->base, USB30_PRIM_MOCK_UTMI_CLK_CMD_RCGR, 1, 0);
 		return 19200000;
 	case GCC_USB3_PRIM_PHY_AUX_CLK_SRC:
-		clk_rcg_set_rate(priv->base, USB30_PRIM_MOCK_UTMI_CLK_CMD_RCGR, 1, 0);
+		clk_rcg_set_rate(priv->base, USB3_PRIM_PHY_AUX_CLK_CMD_RCGR, 1, 0);
 		return 19200000;
 	case GCC_USB30_SEC_MASTER_CLK:
 		freq = qcom_find_freq(ftbl_gcc_usb30_sec_master_clk_src, rate);
